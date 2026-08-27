@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    
+    <!-- Tailwind CSS (CDN for easy setup without build tools) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            darker: '#020617',
+                            card: '#1e293b',
+                            primary: '#a855f7',
+                            primaryHover: '#9333ea',
+                            light: '#d8b4fe',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased relative bg-brand-darker text-slate-50 overflow-x-hidden">
+
+    <!-- Brand Logo Top Left -->
+    <div class="fixed top-6 left-6 z-50 mix-blend-difference text-white font-bold text-xl tracking-widest uppercase">
+        Profile<span class="text-brand-primary">.</span>
+    </div>
+
+    <!-- Right Side Icon Navigation -->
+    <nav class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4 sm:gap-6">
+        <a href="#home" class="nav-item active group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-card/80 backdrop-blur border border-brand-primary text-brand-primary shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all">
+            <i class="fas fa-home sm:text-lg"></i>
+            <span class="tooltip absolute right-full mr-2 px-3 py-1 bg-brand-card text-xs font-semibold rounded shadow-md border border-slate-700 whitespace-nowrap hidden sm:block">Home</span>
+        </a>
+        <a href="#about" class="nav-item group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-card/80 backdrop-blur border border-slate-700 text-slate-400 hover:text-brand-primary hover:border-brand-primary transition-all shadow-lg">
+            <i class="fas fa-user sm:text-lg"></i>
+            <span class="tooltip absolute right-full mr-2 px-3 py-1 bg-brand-card text-xs font-semibold rounded shadow-md border border-slate-700 whitespace-nowrap hidden sm:block">About</span>
+        </a>
+        <a href="#skills" class="nav-item group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-card/80 backdrop-blur border border-slate-700 text-slate-400 hover:text-brand-primary hover:border-brand-primary transition-all shadow-lg">
+            <i class="fas fa-code sm:text-lg"></i>
+            <span class="tooltip absolute right-full mr-2 px-3 py-1 bg-brand-card text-xs font-semibold rounded shadow-md border border-slate-700 whitespace-nowrap hidden sm:block">Skills</span>
+        </a>
+        <a href="#projects" class="nav-item group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-card/80 backdrop-blur border border-slate-700 text-slate-400 hover:text-brand-primary hover:border-brand-primary transition-all shadow-lg">
+            <i class="fas fa-layer-group sm:text-lg"></i>
+            <span class="tooltip absolute right-full mr-2 px-3 py-1 bg-brand-card text-xs font-semibold rounded shadow-md border border-slate-700 whitespace-nowrap hidden sm:block">Projects</span>
+        </a>
+        <a href="#contact" class="nav-item group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-card/80 backdrop-blur border border-slate-700 text-slate-400 hover:text-brand-primary hover:border-brand-primary transition-all shadow-lg">
+            <i class="fas fa-envelope sm:text-lg"></i>
+            <span class="tooltip absolute right-full mr-2 px-3 py-1 bg-brand-card text-xs font-semibold rounded shadow-md border border-slate-700 whitespace-nowrap hidden sm:block">Contact</span>
+        </a>
+    </nav>
+
+    <!-- Header / Home Section -->
+    <section id="home" class="hero-pattern min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-brand-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10 pr-12 sm:pr-0">
+            <div class="mb-8">
+                <!-- Profile Image -->
+                <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\Face_img.jpeg" alt="Profile" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full mx-auto border-2 border-brand-primary shadow-[0_0_30px_rgba(168,85,247,0.4)] object-cover">
+            </div>
+            <!-- Name with pop-up animation -->
+            <h1 class="name-popup text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-400">Siddharth Parakh</span>
+            </h1>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-primaryHover text-white font-semibold py-3 px-8 rounded-full transition duration-300 shadow-[0_0_15px_rgba(168,85,247,0.4)] text-center">
+                    View My Work
+                </a>
+                <a href="dummy-cv.pdf" download="My_CV.pdf" class="w-full sm:w-auto bg-transparent border border-slate-600 hover:border-brand-primary text-slate-300 hover:text-white font-semibold py-3 px-8 rounded-full transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fas fa-download text-sm"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-brand-darker via-brand-dark to-brand-darker">
+        <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-brand-primary/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="max-w-5xl mx-auto pl-0 pr-12 md:px-0 relative z-10">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">About Me</h2>
+                <div class="h-[1px] bg-slate-700 flex-grow"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-2/5 relative">
+                    <div class="absolute inset-0 bg-brand-primary rounded-xl translate-x-4 translate-y-4 -z-10 opacity-50"></div>
+                    <!-- Workspace/Action Image -->
+                    <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\Logo.jpeg" alt="Working" class="rounded-xl shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="w-full md:w-3/5 text-slate-300 leading-relaxed space-y-6 text-base sm:text-lg font-light">
+                    <p>
+                        I am a final-year undergraduate engineer with a strong academic and practical grounding in Machine Learning, Deep Learning, and Data Science. My work centers on developing end-to-end data-driven solutions, experimenting with neural network architectures, and deploying intuitive tools that solve real-world problems. Alongside my work in data science, I channel my creative problem-solving into indie game development—designing responsive 2D mechanics, crafting custom pixel art, and programming gameplay logic..
+                    </p>
+                    <p>
+                        From the moment I wrote my first lines of code, I was drawn to the craft of building something meaningful from scratch. That initial spark has shaped my journey as a developer, driving me to continuously expand my skill set across modern programming languages, frameworks, and system architectures.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me reading novels, or helping at my family venture.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack / Skills -->
+    <section id="skills" class="py-24 px-4 sm:px-6 bg-brand-darker relative overflow-hidden">
+        <div class="max-w-5xl mx-auto pl-0 pr-12 md:px-0 relative z-10">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">My Tech Stack</h2>
+                <div class="h-[1px] bg-slate-700 flex-grow"></div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3 sm:gap-4 mt-8">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">GDScript</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Git & GitHub</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Godot</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-brand-darker via-brand-dark to-brand-darker">
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto pl-0 pr-12 md:px-0 relative z-10">
+            <!-- Header layout with integrated navigation buttons that never get cut off -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <h2 class="text-3xl md:text-4xl font-bold">Featured Projects</h2>
+                        <div class="h-[1px] bg-slate-700 flex-grow max-w-[150px]"></div>
+                    </div>
+                    <p class="text-slate-400 font-light text-sm sm:text-base">Swipe or drag to explore my latest works. Use the arrows to navigate.</p>
+                </div>
+                <!-- Custom non-overlapping navigation buttons -->
+                <div class="flex gap-3">
+                    <div class="swiper-button-prev-custom w-12 h-12 rounded-full bg-brand-card border border-slate-700 flex items-center justify-center text-slate-300 hover:text-brand-primary hover:border-brand-primary cursor-pointer transition shadow-md">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="swiper-button-next-custom w-12 h-12 rounded-full bg-brand-card border border-slate-700 flex items-center justify-center text-slate-300 hover:text-brand-primary hover:border-brand-primary cursor-pointer transition shadow-md">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Swiper Container -->
+            <div class="swiper project-swiper relative w-full">
+                <div class="swiper-wrapper">
+                    
+                    <!-- Project Slide 1 -->
+                    <div class="swiper-slide bg-brand-card rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col group">
+                        <div class="h-48 sm:h-56 bg-slate-900 relative overflow-hidden">
+                            <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\Linear_Reg.png" alt="Project 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative -mt-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2">Student Placement Predictor</h3>
+                            <p class="text-slate-400 mb-4 text-sm line-clamp-3 font-light flex-grow">
+                                A simple interactive dashboard for predicting the possibilty of placement based on Linear Regression model.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="project-tag">Numpy</span>
+                                <span class="project-tag">Streamlit</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://mlfirstapp-2qivgrrlwrddxcqc7gvmt6.streamlit.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-2"></i> Live</a>
+                                <a href="https://github.com/Dufka54/ML_firstApp" target="_blank" class="project-link"><i class="fab fa-github mr-2"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Slide 2 -->
+                    <div class="swiper-slide bg-brand-card rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col group">
+                        <div class="h-48 sm:h-56 bg-slate-900 relative overflow-hidden">
+                            <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\K-Means.png" alt="Project 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative -mt-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2">Customer Segementation</h3>
+                            <p class="text-slate-400 mb-4 text-sm line-clamp-3 font-light flex-grow">
+                                A dynamic dashboard with a user defined model for K-means for customer segmentation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="project-tag">Numpy</span>
+                                <span class="project-tag">Matplotlib</span>
+                                <span class="project-tag">Streamlit</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://customer-segmentation-app-7tbickmpdwxrlxoumsjs2v.streamlit.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-2"></i> Live</a>
+                                <a href="https://github.com/Dufka54/Customer-segmentation-app" target="_blank" class="project-link"><i class="fab fa-github mr-2"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Slide 3 -->
+                    <div class="swiper-slide bg-brand-card rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col group">
+                        <div class="h-48 sm:h-56 bg-slate-900 relative overflow-hidden">
+                            <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\Game.png" alt="Project 3" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative -mt-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2">2D Platformer Game</h3>
+                            <p class="text-slate-400 mb-4 text-sm line-clamp-3 font-light flex-grow">
+                                An under development functional 2D platformer game based on pirate theme.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="project-tag">Godot</span>
+                                <span class="project-tag">GDScript</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <!--<a href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-2"></i> Play</a>
+                                <a href="#" target="_blank" class="project-link"><i class="fab fa-github mr-2"></i> Code</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Slide 4 -->
+                    <div class="swiper-slide bg-brand-card rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col group">
+                        <div class="h-48 sm:h-56 bg-slate-900 relative overflow-hidden">
+                            <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\Weather_API.png" alt="Project 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative -mt-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2">Skycast Enterprise</h3>
+                            <p class="text-slate-400 mb-4 text-sm line-clamp-3 font-light flex-grow">
+                                A simple weather dashboard with realtime report showcasing the application of API.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="project-tag">Python</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://weatherapi-47wthps.streamlit.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-2"></i> Live</a>
+                                <a href="https://github.com/Dufka54/WeatherAPI" target="_blank" class="project-link"><i class="fab fa-github mr-2"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Slide 5 -->
+                    <div class="swiper-slide bg-brand-card rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col group">
+                        <div class="h-48 sm:h-56 bg-slate-900 relative overflow-hidden">
+                            <img src="C:\Users\Siddharth\OneDrive\Desktop\images\Portfolio\images\dataset_visualization.png" alt="Project 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative -mt-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2">MNIST Spatial Inversion</h3>
+                            <p class="text-slate-400 mb-4 text-sm line-clamp-3 font-light flex-grow">
+                                A comparitive analysis betweeen the working behind of FCNN and CNN on the MNIST Dataset.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="project-tag">Pytorch</span>
+                                <span class="project-tag">Matplotlib</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/Dufka54/MNIST_Spatial_Inversion/blob/main/README.md" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-2"></i> Docs</a>
+                                <a href="https://github.com/Dufka54/MNIST_Spatial_Inversion" target="_blank" class="project-link"><i class="fab fa-github mr-2"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper Pagination Dots -->
+                <div class="swiper-pagination mt-8 relative bottom-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Ventures / Hotel Business (Added Call Button) -->
+    <section id="ventures" class="py-16 px-4 sm:px-6 bg-gradient-to-b from-brand-darker via-brand-dark to-brand-darker relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center pl-0 pr-12 md:px-0 relative z-10 border border-slate-700 bg-brand-card/50 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-primary/20 text-brand-primary mb-6 text-2xl">
+                <i class="fas fa-hotel"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Other Ventures</h2>
+            <p class="text-slate-400 mb-8 text-base sm:text-lg font-light max-w-xl mx-auto">
+                Outside of software development, I manage the operations for Hotel Empire Palace in Udaipur, Rajasthan. If you are looking for partnerships, bookings, or related inquiries, feel free to reach out directly.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:reservation.empirepalace@gmail.com" class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-brand-primary hover:text-white border border-slate-600 hover:border-brand-primary text-slate-300 font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md">
+                    <i class="fas fa-envelope"></i> Email Hotel Desk
+                </a>
+                <a href="tel:+919475444498" class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-brand-primary hover:text-white border border-slate-600 hover:border-brand-primary text-slate-300 font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md">
+                    <i class="fas fa-phone-alt"></i> Call Hotel Desk
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 bg-brand-darker flex flex-col justify-center border-t border-slate-800/50 relative">
+        <div class="max-w-4xl mx-auto text-center pl-0 pr-12 md:px-0 w-full relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Let's Connect</h2>
+            <p class="text-slate-400 mb-12 text-base sm:text-lg font-light max-w-xl mx-auto">
+                I'm always open to discussing product design work, tech projects, or general opportunities. Find me on the platforms below!
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
+                <!-- Phone -->
+                <a href="tel:+917340089999" class="contact-icon-group group">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <span class="contact-label">Call Me</span>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:Sparakh2310@gmail.com" class="contact-icon-group group">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <span class="contact-label">Email</span>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/Dufka54" target="_blank" class="contact-icon-group group">
+                    <div class="contact-icon"><i class="fab fa-github"></i></div>
+                    <span class="contact-label">GitHub</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/siddharth-parakh-1b620828a/" target="_blank" class="contact-icon-group group">
+                    <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <span class="contact-label">LinkedIn</span>
+                </a>
+            </div>
+            
+            <p class="mt-16 text-slate-600 text-sm">
+                &copy; 2025 Siddharth Parakh. All rights reserved.
+            </p>
+        </div>
+    </section>
+
+    <!-- Swiper JS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --swiper-theme-color: #a855f7;
+    --swiper-navigation-size: 24px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Background Pattern */
+.hero-pattern {
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Name Pop-up Animation */
+@keyframes popUpName {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.name-popup {
+    opacity: 0;
+    animation: popUpName 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Navigation Tooltips */
+.nav-item .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.nav-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-10px);
+}
+
+.nav-item.active {
+    color: #a855f7; 
+    border-color: #a855f7;
+    box-shadow: 0 0 15px rgba(168,85,247,0.4);
+}
+
+/* Swiper Slider Specific Constraints */
+.project-swiper {
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    width: 300px;
+    height: auto;
+    border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+    .swiper-slide {
+        width: 380px; 
+    }
+}
+
+.swiper-pagination-bullet {
+    background: #64748b;
+}
+.swiper-pagination-bullet-active {
+    background: #a855f7;
+}
+
+/* Pure CSS Classes for reliable rendering */
+.tech-tag {
+    padding: 0.6rem 1.4rem;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: default;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.tech-tag:hover {
+    border-color: #a855f7;
+    color: #d8b4fe;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #d8b4fe;
+    background-color: rgba(168, 85, 247, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.project-link {
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.project-link:hover {
+    color: #d8b4fe;
+}
+
+.contact-icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.contact-icon-group:hover .contact-icon {
+    background-color: #a855f7;
+    color: #ffffff;
+    border-color: #a855f7;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.contact-icon-group:hover .contact-label {
+    color: #d8b4fe;
+}
